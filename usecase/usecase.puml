@@ -1,0 +1,24 @@
+@startuml Data Beasiswa
+title Use Case Diagram Aplikasi Pengelolaan Data Beasiswa
+
+actor Mahasiswa
+actor Admin
+
+usecase "Login" as UC_Login
+
+usecase "Melihat Daftar Beasiswa" as UC_ViewScholarships
+usecase "Mendaftar Beasiswa" as UC_ApplyScholarship
+
+usecase "Mengelola Data Beasiswa" as UC_ManageScholarships
+usecase "Verifikasi Pendaftaran" as UC_VerifyApplications
+
+Mahasiswa --> UC_Login
+Admin --> UC_Login
+
+Mahasiswa --> UC_ViewScholarships
+Mahasiswa --> UC_ApplyScholarship
+
+Admin --> UC_ManageScholarships
+Admin --> UC_VerifyApplications
+
+@enduml

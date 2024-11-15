@@ -1,0 +1,36 @@
+@startuml beasiswa
+
+entity "Scholarships" as scholarships {
+    * id: bigint <<PK>>
+    * name: varchar(255)
+    * description: text
+    * start_date: date
+    * end_date: date
+    * created_at: timestamp
+    * updated_at: timestamp
+}
+
+entity "Applications" as applications {
+    * id: bigint <<PK>>
+    * scholarship_id: bigint <<FK>>
+    * student_id: bigint <<FK>>
+    * status: enum('pending', 'accepted', 'rejected')
+    * applied_at: timestamp
+    * created_at: timestamp
+    * updated_at: timestamp
+}
+
+entity "Users" as users {
+    * id: bigint <<PK>>
+    * name: varchar(255)
+    * email: varchar(255)
+    * password: varchar(255)
+    * role: enum('student', 'admin')
+    * created_at: timestamp
+    * updated_at: timestamp
+}
+
+scholarships --o{ applications : "has"
+applications --o{ users : "belongs to"
+
+@enduml

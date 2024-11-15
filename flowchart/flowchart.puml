@@ -1,0 +1,32 @@
+@startuml Data Beasiswa
+title Flowchart Aplikasi Pengelolaan Data Beasiswa
+
+start
+
+:Login;
+if (Apakah User adalah Admin?) then (Ya)
+    :Akses Admin;
+    :Melihat dan Mengelola Daftar Beasiswa;
+    if (Tambah/Update/Hapus Data Beasiswa?) then (Ya)
+        :Input Data Baru atau Mengubah Data Beasiswa;
+    else (Tidak)
+    endif
+
+    if (Verifikasi Pendaftaran Mahasiswa?) then (Ya)
+        :Cek Dokumen Pendaftaran;
+        :Ubah Status Pendaftaran (Diterima/Ditolak);
+    else (Tidak)
+    endif
+else (Tidak)
+    :Akses Mahasiswa;
+    :Melihat Daftar Beasiswa;
+    if (Ingin Mendaftar?) then (Ya)
+        :Upload Dokumen Persyaratan;
+        :Submit Pendaftaran;
+    else (Tidak)
+    endif
+endif
+
+stop
+
+@enduml
